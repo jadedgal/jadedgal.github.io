@@ -2,7 +2,16 @@ from bs4 import BeautifulSoup, Comment
 import re
 
 title = input("Enter the title of the review: ")
-review = input("Enter the review: ")
+review = ""
+print("Enter/Paste your content. Ctrl-D or Ctrl-Z ( windows ) to save it.")
+contents = []
+while True:
+    try:
+        line = input()
+    except EOFError:
+        break
+    contents.append(line)
+review = "\n".join(contents)
 
 with open("index.html", "r", encoding="utf-8") as file:
     soup = BeautifulSoup(file, "html.parser")

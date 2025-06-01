@@ -8,7 +8,7 @@ contents = []
 while True:
     try:
         line = input()
-    except EOFError:
+    except KeyboardInterrupt:
         break
     contents.append(line)
 review = "\n".join(contents)
